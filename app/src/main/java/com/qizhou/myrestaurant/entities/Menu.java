@@ -1,6 +1,9 @@
 package com.qizhou.myrestaurant.entities;
 
-public class Menu {
+import java.io.Serializable;
+
+public class Menu implements Serializable {
+    private final long serialVersionUID = 134746218948918589L;
     private Category category;
     private int image;
     private String name;
