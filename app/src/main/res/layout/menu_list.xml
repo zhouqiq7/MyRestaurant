@@ -11,14 +11,12 @@
             android:id="@+id/main_menu_list_image"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/dog1"/>
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/main_menu_list_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DOG"
             android:textSize="30sp"
             android:layout_gravity="bottom"
             android:gravity="center"
