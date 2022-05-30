@@ -16,12 +16,23 @@
 
         <TextView
             android:id="@+id/added_foods_total_price"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:background="#C1D0CFCF"
-            android:gravity="center"
-            android:text="DDDD"/>
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/added_foods_view_cart"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/see_cart"
+            android:background="#C1D0CFCF"
+            android:onClick="onSeeCartClicked"
+            android:gravity="center"/>
     </LinearLayout>
 
 
