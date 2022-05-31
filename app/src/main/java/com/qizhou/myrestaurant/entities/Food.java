@@ -1,6 +1,7 @@
 package com.qizhou.myrestaurant.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Food implements Serializable {
     private final long serialVersionUID = -43242543548918589L;
@@ -57,5 +58,18 @@ public class Food implements Serializable {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Food food = (Food) o;
+        return serialVersionUID == food.serialVersionUID && image == food.image && Double.compare(food.price, price) == 0 && name.equals(food.name) && category == food.category && description.equals(food.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(serialVersionUID, name, image, category, description, price);
     }
 }

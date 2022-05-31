@@ -53,11 +53,20 @@
         android:gravity="bottom">
 
         <Button
+            android:id="@+id/button_cart_list_clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="CLEAR"
-            android:onClick="onClearClicked"/>
+            android:text="CLEAR" />
+
+        <TextView
+            android:id="@+id/added_food_detail_total_price"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:background="#C1D0CFCF"
+            android:gravity="center"/>
     </LinearLayout>
 
 

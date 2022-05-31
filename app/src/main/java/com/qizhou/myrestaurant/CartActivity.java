@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
 
-    private HashMap<Food, Integer> foodAdded;
+    private static HashMap<Food, Integer> foodAdded;
     private Category category;
 
     @Override
@@ -36,7 +37,33 @@ public class CartActivity extends AppCompatActivity {
         List<Food> foodList = new ArrayList<>(foodAdded != null ? foodAdded.keySet() : new ArrayList<>());
 
         ListView cartListView = findViewById(R.id.cart_list);
-        cartListView.setAdapter(new CartAdapter(this, foodList));
+        cartListView.setAdapter(new CartActivity.CartAdapter(this, foodList));
+
+        Button buttonClear = findViewById(R.id.button_cart_list_clear);
+        buttonClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                foodAdded.clear();
+                Intent intent = new Intent(CartActivity.this, FoodListActivity.class);
+                intent.putExtra("foodadded", foodAdded);
+                intent.putExtra("category", category);
+                startActivity(intent);
+            }
+        });
+
+        TextView totalPrice = findViewById(R.id.added_food_detail_total_price);
+        totalPrice.setText("Total: " + getTotalPrice(foodAdded));
+    }
+
+    private String getTotalPrice(HashMap<Food, Integer> foodAdded) {
+        if (foodAdded.isEmpty()) {
+            return "";
+        }
+        double totalPrice = 0;
+        for (Food food : foodAdded.keySet()) {
+            totalPrice += food.getPrice() * foodAdded.get(food);
+        }
+        return String.valueOf(totalPrice);
     }
 
     private static class CartAdapter extends BaseAdapter {
@@ -75,24 +102,16 @@ public class CartActivity extends AppCompatActivity {
             foodName.setText(food.getName());
 
             TextView foodNum = convertView.findViewById(R.id.cart_list_num);
-//            foodNum.setText(String.valueOf(CartActivity.foodAdded.get(food)));
+            foodNum.setText(String.valueOf(CartActivity.foodAdded.get(food)));
 
             TextView foodPrice = convertView.findViewById(R.id.cart_list_price);
             foodPrice.setText(String.valueOf(food.getPrice()));
 
             TextView foodTotalPrice = convertView.findViewById(R.id.cart_list_total);
-//            foodTotalPrice.setText(String.valueOf(food.getPrice() * CartActivity.foodAdded.get(food)));
+            foodTotalPrice.setText(String.valueOf(food.getPrice() * CartActivity.foodAdded.get(food)));
 
             return convertView;
         }
-    }
-
-    public void onClearClicked(View view) {
-        foodAdded.clear();
-        Intent intent = new Intent(this, FoodListActivity.class);
-        intent.putExtra("foodadded", foodAdded);
-        intent.putExtra("category", category);
-        startActivity(intent);
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {

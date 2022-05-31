@@ -16,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.qizhou.myrestaurant.entities.Category;
 import com.qizhou.myrestaurant.entities.Food;
-import com.qizhou.myrestaurant.entities.Menu;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,11 +28,9 @@ public class FoodListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_foods_list);
+        setContentView(R.layout.activity_food_list);
 
-        Menu menu = (Menu) getIntent().getSerializableExtra("menu");
-        Food food = (Food) getIntent().getSerializableExtra("food");
-        category = menu != null ? menu.getCategory() : food.getCategory();
+        category = (Category) getIntent().getSerializableExtra("category");
         foodAdded = (HashMap<Food, Integer>) getIntent().getSerializableExtra("foodadded");
         List<Food> foods = initFoods(category);
 
@@ -49,14 +46,8 @@ public class FoodListActivity extends AppCompatActivity {
             }
         });
 
-        TextView totalPrice = findViewById(R.id.added_foods_total_price);
+        TextView totalPrice = findViewById(R.id.added_food_total_price);
         totalPrice.setText("Total: " + getTotalPrice(foodAdded));
-    }
-
-    @Override
-    protected void onStart() {
-        System.out.println("");
-        super.onStart();
     }
 
     private String getTotalPrice(HashMap<Food, Integer> foodAdded) {
@@ -98,11 +89,11 @@ public class FoodListActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 LayoutInflater layoutInflater = LayoutInflater.from(context);
-                convertView = layoutInflater.inflate(R.layout.foods_list, parent, false);
+                convertView = layoutInflater.inflate(R.layout.food_list, parent, false);
             }
 
             Food food = foods.get(position);
-            TextView foodName = convertView.findViewById(R.id.foods_list_name);
+            TextView foodName = convertView.findViewById(R.id.food_list_name);
             foodName.setText(food.getName());
 
             return convertView;
@@ -112,7 +103,7 @@ public class FoodListActivity extends AppCompatActivity {
     private List<Food> initFoods(Category category) {
         List<Food> foods = new ArrayList<>();
         if (Category.humber.equals(category)) {
-            foods.add(new Food("Beef Burger", R.drawable.menu_hamburger, category, "This is a delicious burger", 11.99));
+            foods.add(new Food("Beef Burger", R.drawable.menu_hamburger, category, "This is a delicious burger, This is a delicious burger, This is a delicious burger, This is a delicious burger, This is a delicious burger, This is a delicious burger", 11.99));
             foods.add(new Food("Chicken Burger", R.drawable.menu_hamburger, category, "This is a delicious burger", 10.99));
             foods.add(new Food("Fish Burger", R.drawable.menu_hamburger, category, "This is a delicious burger", 12.99));
             foods.add(new Food("No meet Burger", R.drawable.menu_hamburger, category, "This is a delicious burger", 11.99));
@@ -134,7 +125,7 @@ public class FoodListActivity extends AppCompatActivity {
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode==KeyEvent.KEYCODE_BACK ){
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("foodadded", foodAdded);
             intent.putExtra("category", category);

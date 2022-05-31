@@ -47,7 +47,7 @@ public class FoodDetailActivity extends AppCompatActivity {
         if (addFood(text)) {
             Intent intent = new Intent(this, FoodListActivity.class);
             intent.putExtra("foodadded", foodAdded);
-            intent.putExtra("food", food);
+            intent.putExtra("category", food.getCategory());
             startActivity(intent);
         }
     }
@@ -70,7 +70,7 @@ public class FoodDetailActivity extends AppCompatActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent(this, FoodListActivity.class);
             intent.putExtra("foodadded", foodAdded);
-            intent.putExtra("food", food);
+            intent.putExtra("category", food.getCategory());
             startActivity(intent);
             this.finish();
         }

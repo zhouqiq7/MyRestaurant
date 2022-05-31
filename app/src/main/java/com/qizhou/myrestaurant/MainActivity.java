@@ -26,7 +26,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private HashMap<Food, Integer> foodAdded;
-    private Food food;
+    private Category category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +39,14 @@ public class MainActivity extends AppCompatActivity {
 
         foodAdded = getIntent().getSerializableExtra("foodadded") != null ? (HashMap<Food, Integer>) getIntent().getSerializableExtra("foodadded") :
                 new HashMap<>();
-        food = (Food) getIntent().getSerializableExtra("food");
+        category = (Category) getIntent().getSerializableExtra("category");
 
         mainMenu.setAdapter(new MenuAdapter(this, mainMenus));
         mainMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // intent transfer an object, reference: https://blog.csdn.net/leejizhou/article/details/51105060
-                intent.putExtra("menu", mainMenus.get(position));
+                intent.putExtra("category", mainMenus.get(position).getCategory());
                 intent.putExtra("foodadded", foodAdded);
                 startActivity(intent);
             }
@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static class MenuAdapter extends BaseAdapter {
-        // reference https://www.udemy.com/course/android-app/learn/lecture/9000036
         Context context;
         List<Menu> menus;
 
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         if (keyCode==KeyEvent.KEYCODE_BACK ){
             Intent intent = new Intent(this, FoodListActivity.class);
             intent.putExtra("foodadded", foodAdded);
-            intent.putExtra("food", food);
+            intent.putExtra("category", category);
             startActivity(intent);
             this.finish();
         }
