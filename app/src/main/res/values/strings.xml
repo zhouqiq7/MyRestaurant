@@ -8,4 +8,8 @@
     <string name="enter_quantity">Enter Quantity</string>
     <string name="see_cart">SEE CART</string>
     <string name="clear">CLEAR</string>
+    <string name="item_name">Item Name</string>
+    <string name="num">Num</string>
+    <string name="price">$$</string>
+    <string name="total">Total</string>
 </resources>
