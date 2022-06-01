@@ -39,8 +39,8 @@ public class CartActivity extends AppCompatActivity {
         ListView cartListView = findViewById(R.id.cart_list);
         cartListView.setAdapter(new CartActivity.CartAdapter(this, foodList));
 
-        Button buttonClear = findViewById(R.id.button_cart_list_clear);
-        buttonClear.setOnClickListener(new View.OnClickListener() {
+        Button clearButton = findViewById(R.id.button_cart_list_clear);
+        clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 foodAdded.clear();

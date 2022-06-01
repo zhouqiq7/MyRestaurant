@@ -87,7 +87,6 @@
             android:textSize="20sp"
             android:text="@string/add_this_item"
             android:background="#C1D0CFCF"
-            android:onClick="onAddFoodClicked"
             android:gravity="center"/>
     </LinearLayout>
 

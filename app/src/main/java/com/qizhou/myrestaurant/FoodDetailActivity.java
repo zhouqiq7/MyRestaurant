@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,17 +40,21 @@ public class FoodDetailActivity extends AppCompatActivity {
 
         TextView foodPrice = findViewById(R.id.food_detail_price);
         foodPrice.setText("$" + String.valueOf(food.getPrice()));
-    }
 
-    public void onAddFoodClicked(View view) {
-        EditText quantity = findViewById(R.id.food_detail_quantity);
-        String text = quantity.getText().toString();
-        if (addFood(text)) {
-            Intent intent = new Intent(this, FoodListActivity.class);
-            intent.putExtra("foodadded", foodAdded);
-            intent.putExtra("category", food.getCategory());
-            startActivity(intent);
-        }
+        Button addFoodButton = findViewById(R.id.food_detail_addfood);
+        addFoodButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText quantity = findViewById(R.id.food_detail_quantity);
+                String text = quantity.getText().toString();
+                if (addFood(text)) {
+                    Intent intent = new Intent(FoodDetailActivity.this, FoodListActivity.class);
+                    intent.putExtra("foodadded", foodAdded);
+                    intent.putExtra("category", food.getCategory());
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     private boolean addFood(String text) {

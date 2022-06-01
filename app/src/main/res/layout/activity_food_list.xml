@@ -31,7 +31,6 @@
             android:textSize="18sp"
             android:text="@string/see_cart"
             android:background="#C1D0CFCF"
-            android:onClick="onSeeCartClicked"
             android:gravity="center"/>
     </LinearLayout>
 

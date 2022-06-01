@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -48,6 +49,18 @@ public class FoodListActivity extends AppCompatActivity {
 
         TextView totalPrice = findViewById(R.id.added_food_total_price);
         totalPrice.setText("Total: " + getTotalPrice(foodAdded));
+
+        Button seeCartButton = findViewById(R.id.added_foods_view_cart);
+        seeCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodListActivity.this, CartActivity.class);
+                intent.putExtra("foodadded", foodAdded);
+                intent.putExtra("category", category);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private String getTotalPrice(HashMap<Food, Integer> foodAdded) {
@@ -114,13 +127,26 @@ public class FoodListActivity extends AppCompatActivity {
             foods.add(new Food("Fish Steak", R.drawable.menu_steak, category, "This is a delicious steak", 15.99));
             foods.add(new Food("No meet Steak", R.drawable.menu_steak, category, "This is a delicious steak", 11.99));
             foods.add(new Food("Pork Steak", R.drawable.menu_steak, category, "This is a delicious steak", 10.99));
-        } else {
+        } else if (Category.salad.equals(category)){
             foods.add(new Food("Beef Salad", R.drawable.menu_salad, category, "This is a delicious salad", 11.99));
             foods.add(new Food("Chicken Salad", R.drawable.menu_salad, category, "This is a delicious salad", 13.99));
             foods.add(new Food("Fish Salad", R.drawable.menu_salad, category, "This is a delicious salad", 15.99));
             foods.add(new Food("No meet Salad", R.drawable.menu_salad, category, "This is a delicious salad", 11.99));
             foods.add(new Food("Pork Salad", R.drawable.menu_salad, category, "This is a delicious salad", 10.99));
+        } else if (Category.iceCream.equals(category)) {
+            foods.add(new Food("Beef Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 11.99));
+            foods.add(new Food("Chicken Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 13.99));
+            foods.add(new Food("Fish Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 15.99));
+            foods.add(new Food("No meet Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 11.99));
+            foods.add(new Food("Pork Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 10.99));
+        } else {
+            foods.add(new Food("Beef Joice", R.drawable.menu_drinks, category, "This is a delicious joice", 11.99));
+            foods.add(new Food("Chicken Joice", R.drawable.menu_drinks, category, "This is a delicious joice", 13.99));
+            foods.add(new Food("Fish Joice", R.drawable.menu_drinks, category, "This is a delicious joice", 15.99));
+            foods.add(new Food("No meet Joice", R.drawable.menu_drinks, category, "This is a delicious joice", 11.99));
+            foods.add(new Food("Pork Joice", R.drawable.menu_drinks, category, "This is a delicious joice", 10.99));
         }
+
         return foods;
     }
 
@@ -133,12 +159,5 @@ public class FoodListActivity extends AppCompatActivity {
             this.finish();
         }
         return super.onKeyDown(keyCode, event);
-    }
-
-    public void onSeeCartClicked(View view) {
-        Intent intent = new Intent(this, CartActivity.class);
-        intent.putExtra("foodadded", foodAdded);
-        intent.putExtra("category", category);
-        startActivity(intent);
     }
 }
