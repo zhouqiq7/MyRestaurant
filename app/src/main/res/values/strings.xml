@@ -7,4 +7,5 @@
     <string name="add_this_item">ADD THIS ITEM</string>
     <string name="enter_quantity">Enter Quantity</string>
     <string name="see_cart">SEE CART</string>
+    <string name="clear">CLEAR</string>
 </resources>
