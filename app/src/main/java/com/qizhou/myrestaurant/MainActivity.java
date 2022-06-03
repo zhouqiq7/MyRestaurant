@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Menu> getMainMenus() {
         List<Menu> menus = new ArrayList<>();
         // reference https://www.udemy.com/course/android-app/learn/lecture/9000036
-        menus.add(new Menu(Category.humber, R.drawable.menu_hamburger, "Humbers"));
+        menus.add(new Menu(Category.hamburger, R.drawable.menu_hamburger, "Hamburger"));
         menus.add(new Menu(Category.steak, R.drawable.menu_steak, "Steaks"));
         menus.add(new Menu(Category.salad, R.drawable.menu_salad, "Salads"));
         menus.add(new Menu(Category.iceCream, R.drawable.menu_ice_cream, "Ice Creams"));

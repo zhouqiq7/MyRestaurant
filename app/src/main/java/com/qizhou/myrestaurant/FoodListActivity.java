@@ -115,7 +115,7 @@ public class FoodListActivity extends AppCompatActivity {
 
     private List<Food> initFoods(Category category) {
         List<Food> foods = new ArrayList<>();
-        if (Category.humber.equals(category)) {
+        if (Category.hamburger.equals(category)) {
             foods.add(new Food("Beef Burger", R.drawable.menu_hamburger, category, "This is a delicious burger, This is a delicious burger", 11.99));
             foods.add(new Food("Chicken Burger", R.drawable.menu_hamburger, category, "This is a delicious burger", 10.99));
             foods.add(new Food("Fish Burger", R.drawable.menu_hamburger, category, "This is a delicious burger", 12.99));

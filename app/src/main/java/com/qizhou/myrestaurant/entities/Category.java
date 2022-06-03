@@ -1,7 +1,7 @@
 package com.qizhou.myrestaurant.entities;
 
 public enum Category {
-    humber,
+    hamburger,
     steak,
     salad,
     iceCream,
