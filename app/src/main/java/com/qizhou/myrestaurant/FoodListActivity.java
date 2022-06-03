@@ -116,7 +116,7 @@ public class FoodListActivity extends AppCompatActivity {
     private List<Food> initFoods(Category category) {
         List<Food> foods = new ArrayList<>();
         if (Category.humber.equals(category)) {
-            foods.add(new Food("Beef Burger", R.drawable.menu_hamburger, category, "This is a delicious burger, This is a delicious burger, This is a delicious burger, This is a delicious burger, This is a delicious burger, This is a delicious burger", 11.99));
+            foods.add(new Food("Beef Burger", R.drawable.menu_hamburger, category, "This is a delicious burger, This is a delicious burger", 11.99));
             foods.add(new Food("Chicken Burger", R.drawable.menu_hamburger, category, "This is a delicious burger", 10.99));
             foods.add(new Food("Fish Burger", R.drawable.menu_hamburger, category, "This is a delicious burger", 12.99));
             foods.add(new Food("No meet Burger", R.drawable.menu_hamburger, category, "This is a delicious burger", 11.99));
@@ -128,23 +128,23 @@ public class FoodListActivity extends AppCompatActivity {
             foods.add(new Food("No meet Steak", R.drawable.menu_steak, category, "This is a delicious steak", 11.99));
             foods.add(new Food("Pork Steak", R.drawable.menu_steak, category, "This is a delicious steak", 10.99));
         } else if (Category.salad.equals(category)){
-            foods.add(new Food("Beef Salad", R.drawable.menu_salad, category, "This is a delicious salad", 11.99));
-            foods.add(new Food("Chicken Salad", R.drawable.menu_salad, category, "This is a delicious salad", 13.99));
-            foods.add(new Food("Fish Salad", R.drawable.menu_salad, category, "This is a delicious salad", 15.99));
-            foods.add(new Food("No meet Salad", R.drawable.menu_salad, category, "This is a delicious salad", 11.99));
-            foods.add(new Food("Pork Salad", R.drawable.menu_salad, category, "This is a delicious salad", 10.99));
+            foods.add(new Food("Tomato Salad", R.drawable.menu_salad, category, "This is a delicious salad", 11.99));
+            foods.add(new Food("Strawberry Salad", R.drawable.menu_salad, category, "This is a delicious salad", 13.99));
+            foods.add(new Food("Green Salad", R.drawable.menu_salad, category, "This is a delicious salad", 15.99));
+            foods.add(new Food("Mixed Salad", R.drawable.menu_salad, category, "This is a delicious salad", 11.99));
+            foods.add(new Food("Seafood Salad", R.drawable.menu_salad, category, "This is a delicious salad", 10.99));
         } else if (Category.iceCream.equals(category)) {
-            foods.add(new Food("Beef Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 11.99));
-            foods.add(new Food("Chicken Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 13.99));
-            foods.add(new Food("Fish Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 15.99));
-            foods.add(new Food("No meet Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 11.99));
-            foods.add(new Food("Pork Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 10.99));
+            foods.add(new Food("Mango Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 11.99));
+            foods.add(new Food("Mint Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 12.99));
+            foods.add(new Food("Strawberry Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 8.99));
+            foods.add(new Food("Blueberry Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 11.99));
+            foods.add(new Food("Vanilla Ice Cream", R.drawable.menu_ice_cream, category, "This is a delicious ice cream", 10.99));
         } else {
-            foods.add(new Food("Beef Joice", R.drawable.menu_drinks, category, "This is a delicious joice", 11.99));
-            foods.add(new Food("Chicken Joice", R.drawable.menu_drinks, category, "This is a delicious joice", 13.99));
-            foods.add(new Food("Fish Joice", R.drawable.menu_drinks, category, "This is a delicious joice", 15.99));
-            foods.add(new Food("No meet Joice", R.drawable.menu_drinks, category, "This is a delicious joice", 11.99));
-            foods.add(new Food("Pork Joice", R.drawable.menu_drinks, category, "This is a delicious joice", 10.99));
+            foods.add(new Food("Apple Juice", R.drawable.menu_drinks, category, "This is a delicious Juice", 8.99));
+            foods.add(new Food("Orange Juice", R.drawable.menu_drinks, category, "This is a delicious Juice", 7.99));
+            foods.add(new Food("Mixed Juice", R.drawable.menu_drinks, category, "This is a delicious Juice", 8.99));
+            foods.add(new Food("Special Juice", R.drawable.menu_drinks, category, "This is a delicious Juice", 6.99));
+            foods.add(new Food("Summer Juice", R.drawable.menu_drinks, category, "This is a delicious Juice", 9.99));
         }
 
         return foods;
